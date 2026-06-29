@@ -9,9 +9,9 @@
 
 # ─── Certificados SSL (NUNCA versionados) ────────────────────────────────────
 # Os placeholders de instrução são versionados, mas os reais NÃO
-# Para versionar os placeholders, remova estas linhas:
-# certs/origin.crt
-# certs/origin.key
+# Para versionar os placeholders, remova estas linhas ou adicione exceções:
+# certs/*.crt
+# certs/*.key
 
 # ─── Arquivos do site (build do React/Vite) ──────────────────────────────────
 # O build é gerado pelo CI/CD, não deve ser versionado aqui

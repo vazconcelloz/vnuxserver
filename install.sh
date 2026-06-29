@@ -217,14 +217,14 @@ else
     fi
 
     # Copiar certificados se existirem no template
-    if [[ -f "$SCRIPT_DIR/certs/origin.crt" ]]; then
-        cp "$SCRIPT_DIR/certs/origin.crt" "$SERVER_DIR/certs/"
-        cp "$SCRIPT_DIR/certs/origin.key" "$SERVER_DIR/certs/"
-        chmod 600 "$SERVER_DIR/certs/"*
+    if ls "$SCRIPT_DIR/certs/"*.crt 1> /dev/null 2>&1; then
+        cp "$SCRIPT_DIR/certs/"*.crt "$SERVER_DIR/certs/" 2>/dev/null || true
+        cp "$SCRIPT_DIR/certs/"*.key "$SERVER_DIR/certs/" 2>/dev/null || true
+        chmod 600 "$SERVER_DIR/certs/"*.key 2>/dev/null || true
         log "Certificados copiados."
     else
-        warn "Certificados não encontrados em $SCRIPT_DIR/certs/"
-        warn "Adicione origin.crt e origin.key em $SERVER_DIR/certs/ antes de iniciar."
+        warn "Nenhum certificado .crt encontrado em $SCRIPT_DIR/certs/"
+        warn "Adicione seus arquivos .crt e .key em $SERVER_DIR/certs/ antes de iniciar."
     fi
 
     log "Arquivos copiados para $SERVER_DIR."
@@ -245,7 +245,7 @@ section "8/8 — Iniciando a stack Docker"
 # =============================================================================
 
 if [[ -f "$SERVER_DIR/docker-compose.yml" ]]; then
-    if [[ ! -f "$SERVER_DIR/certs/origin.crt" ]] || [[ ! -f "$SERVER_DIR/certs/origin.key" ]]; then
+    if ! ls "$SERVER_DIR/certs/"*.crt 1> /dev/null 2>&1; then
         warn "Certificados SSL ausentes. A stack não será iniciada automaticamente."
         warn "Adicione os certificados e execute: cd $SERVER_DIR && docker compose up -d"
     else
