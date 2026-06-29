@@ -1,0 +1,32 @@
+# =============================================================================
+# .gitattributes — vnux-server-template
+# Garante que os scripts shell mantenham line endings LF (Unix)
+# mesmo que o repositório seja clonado no Windows
+# =============================================================================
+
+# Padrão: auto CRLF para texto genérico
+* text=auto
+
+# Scripts shell SEMPRE com LF (Linux/macOS)
+*.sh text eol=lf
+
+# Configs Nginx SEMPRE com LF
+*.conf text eol=lf
+
+# YAML/Docker SEMPRE com LF
+*.yml text eol=lf
+*.yaml text eol=lf
+
+# Markdown e texto: auto
+*.md text eol=lf
+*.txt text eol=lf
+
+# Env files: LF
+.env text eol=lf
+.env.example text eol=lf
+.gitignore text eol=lf
+
+# Certificados: binário (não alterar line endings)
+*.crt binary
+*.key binary
+*.pem binary

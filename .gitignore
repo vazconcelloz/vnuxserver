@@ -1,0 +1,57 @@
+# =============================================================================
+# .gitignore — vnux-server-template
+# =============================================================================
+
+# ─── Variáveis de ambiente (dados sensíveis) ─────────────────────────────────
+.env
+*.env.local
+*.env.production
+
+# ─── Certificados SSL (NUNCA versionados) ────────────────────────────────────
+# Os placeholders de instrução são versionados, mas os reais NÃO
+# Para versionar os placeholders, remova estas linhas:
+# certs/origin.crt
+# certs/origin.key
+
+# ─── Arquivos do site (build do React/Vite) ──────────────────────────────────
+# O build é gerado pelo CI/CD, não deve ser versionado aqui
+site/
+
+# ─── Logs ─────────────────────────────────────────────────────────────────────
+logs/
+*.log
+
+# ─── Backups ──────────────────────────────────────────────────────────────────
+backups/
+*.tar.gz
+*.tar.bz2
+*.zip
+
+# ─── Sistemas operacionais ────────────────────────────────────────────────────
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# ─── IDEs e Editores ─────────────────────────────────────────────────────────
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+*~
+
+# ─── Docker ───────────────────────────────────────────────────────────────────
+# Arquivos gerados pelo Docker em desenvolvimento local
+docker-compose.override.yml
+
+# ─── Node.js (se algum script de utilitário for adicionado) ──────────────────
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

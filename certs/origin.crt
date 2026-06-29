@@ -1,0 +1,11 @@
+# Coloque aqui seu Origin Certificate da Cloudflare
+#
+# Como obter:
+# 1. Cloudflare Dashboard → seu domínio → SSL/TLS → Origin Server
+# 2. Clique em "Create Certificate"
+# 3. Selecione o período de validade (até 15 anos)
+# 4. Copie o conteúdo do "Origin Certificate" e cole neste arquivo
+# 5. O arquivo deve começar com: -----BEGIN CERTIFICATE-----
+#
+# ATENÇÃO: Nunca comite este arquivo com o certificado real no Git!
+# Adicione certs/ ao .gitignore
